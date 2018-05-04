@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Receptai</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css.map">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <style>
+            .lower {
+                padding-top: 5%;
+            }
+            h1 {
+            	colour: blue;
+            	background-color: lightblue;
+            	border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+           <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+       <![endif]-->
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <h1 class="text-center">
+                        Receptų paieška
+                    </h1>
+                </div>
+            </div>
+            <div class="row lower">
+                <div class="col-xl-4">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control form-control-lg" type="text" name="recepto_pavadinimas" onkeyup="myFunction()" placeholder="Recepto Pavadinimas">
+                            <input class="form-control form-control-lg" type="text" onkeyup="myFunction()" name="produktai" required placeholder="Produktai (Privalomas laukelis)">
+                            <input class="form-control form-control-lg" type="text" name="likes" onkeyup="myFunction()" placeholder="Like">
+                            <input class="form-control form-control-lg" type="text" name="tags" onkeyup="myFunction()" placeholder="Hash Tags">
+                            <button type="button" class="btn btn-outline-primary search btn-lg btn-block">Ieškoti</button>
+                            <textarea class="form-control form-control-lg" type="text" id="idk" name="input" placeholder="Input" style="white-space:normal;" readonly="readonly"/></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xl-4">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control form-control-lg" type="text" name="recepto_pavadinimas" required placeholder="Recepto Pavadinimas">
+                            <input class="form-control form-control-lg" type="text" name="recepto_url" required placeholder="Recepto Nuoroda">
+                            <input class="form-control form-control-lg" type="text" name="produktai" required required placeholder="Produktai">
+                            <input class="form-control form-control-lg" type="text" name="tags" required placeholder="Hash Tags">
+                            <button type="button" onclick="myFunction2()" class="btn btn-outline-primary search btn-lg btn-block">Pridėti</button>
+                            <input class="form-control form-control-lg" type="text" name="output" placeholder="Output" readonly="readonly"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xl-8">
+                    <table class="table table-hover" name="receptai" id="receptai">
+                        <tr class="header">
+                            <th>#</th>
+                            <th>Recepto Pavadinimas</th>
+                            <th>URL / Nuoroda</th>
+                            <th>Produktai</th>
+                            <th>Likes</th>
+                            <th>Dislikes</th>
+                            <th>#Hash Tags</th>
+                        </tr>
+                        <tr id="1receptas">
+                            <th>
+                            	<div position:absolute>
+                            		<button type="button" onclick="koreguoti(1)" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Koreguoti</button>
+                            	</div>
+                            </th>
+                            <th>Miltiniai blynai</th>
+                            <th>
+                            	<a href="http://google.com/whatevz" id="1link">http://google.com/whatevz</a>
+                            </th>
+                            <th>Pienas, Miltai, Kiaušiniai</th>
+                            <th onclick="myFunction3(1, 'like')">15</th>
+                            <th onclick="myFunction3(1, 'dislike')">2</th>
+                            <th>#smalyziams</th>
+                        </tr>
+                        <tr id="2receptas">
+                            <th>
+                            	<div position:absolute>
+                            		<button type="button" onclick="koreguoti(2)" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Koreguoti</button>
+                            	</div>
+                            </th>
+                            <th>Grikių Košė</th>
+                            <th>
+                            	<a href="http://google.com/whatevz" id="2link">http://google.com/whatevz</a>
+                            </th>
+                            <th>Grikiai, vanduo, druska, meilės</th>
+                            <th onclick="myFunction3(2, 'like')">10</th>
+                            <th onclick="myFunction3(2, 'dislike')">5</th>
+                            <th>#grikiai #kose #makalose #apsivemiau bsk</th>
+                        </tr>
+                        <tr id="3receptas">
+                            <th>
+                            	<div position:absolute>
+                            		<button type="button" onclick="koreguoti(3)" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Koreguoti</button>
+                            	</div>
+                            </th>
+                            <th>Grikių Košė</th>
+                            <th>
+                            	<a href="http://google.com/whatevz" id="3link">http://google.com/whatevz</a>
+                            </th>
+                            <th>Grikiai, vanduo, druska, meilės</th>
+                            <th onclick="myFunction3(3, 'like')">10</th>
+                            <th onclick="myFunction3(3, 'dislike')">5</th>
+                            <th>#grikiai #kose #makalose #apsivemiau bsk</th>
+                        </tr>
+                        <tr id="4receptas">
+                            <th>
+                            	<div position:absolute>
+                            		<button type="button" onclick="koreguoti(4)" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Koreguoti</button>
+                            	</div>
+                            </th>
+                            <th>Grikių Košė</th>
+                            <th>
+                            	<a href="http://google.com/whatevz" id="4link">http://google.com/whatevz</a>
+                            </th>
+                            <th>Grikiai, vanduo, druska, meilės</th>
+                            <th onclick="myFunction3(4, 'like')">10</th>
+                            <th onclick="myFunction3(4, 'dislike')">5</th>
+                            <th>#grikiai #kose #makalose #apsivemiau bsk</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="modalwindow">
+		  <div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modalPavadinimas">Receptas</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				</div>
+			    <div class="modal-body">
+			    	<input class="form-control form-control-lg" type="text" name="recepto_pavadinimas" required placeholder="Recepto Pavadinimas">
+                    <input class="form-control form-control-lg" type="text" name="recepto_url" required placeholder="Recepto Nuoroda">
+                    <input class="form-control form-control-lg" type="text" name="produktai" required required placeholder="Produktai">
+                    <input class="form-control form-control-lg" type="text" name="tags" required placeholder="Hash Tags">
+                    <input class="form-control form-control-lg" type="text" name="output2" placeholder="Output" readonly="readonly"/>
+			        <p class="text-center">Galima koreguoti pasirinktą receptą&hellip;</p>
+			    </div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-outline-danger" id="istrinti" onclick="">Ištrinti</button>
+					<button type="button" class="btn btn-primary" id="issaugoti" onclick="">Išsaugoti</button>
+				</div>
+			</div>
+		  </div>
+		</div>
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+		<script>
+			var receptuSk = 4;
+			//koreguoti recepta
+			function myHashTags(i) {
+        		return document.getElementsByName("tags")[i].value.replace(/#/g, '').replace(/,/g, '').replace(/ /g, ' #')
+        	}
+			function issaugoti(i) {
+				if ((document.getElementsByName("recepto_pavadinimas")[2].value) && (document.getElementsByName("recepto_url")[1].value) && (document.getElementsByName("produktai")[2].value) && (document.getElementsByName("tags")[2].value)) {
+					var table = document.getElementById("receptai");
+					var rows = table.rows;
+					for (var k = 0; k < rows.length; k++) {
+						if (rows[k].id == (i + 'receptas')) {
+							var row = rows[k];
+							break;
+						}
+					}
+					var cell = row.cells;
+					cell[1].innerHTML = document.getElementsByName("recepto_pavadinimas")[2].value;
+					cell[2].innerHTML = '<a href="' + document.getElementsByName("recepto_url")[1].value + '"'+ 'id="' + i + 'link"' + '>' + document.getElementsByName("recepto_url")[1].value + '</a>';
+					cell[3].innerHTML = document.getElementsByName("produktai")[2].value;
+					cell[6].innerHTML = '#' + myHashTags(2);
+					document.getElementsByName("output2")[0].value = 'Edited';
+					setTimeout(function (){
+						$('#modalwindow').modal('hide');
+						document.getElementsByName("output2")[0].value = 'Output';
+					}, 600);
+				} else {
+					document.getElementsByName("output2")[0].value = 'Missing inputs';
+				}
+			}
+			function koreguoti(i) {
+				document.getElementById("modalPavadinimas").innerHTML = i + ' Receptas';
+				document.getElementsByName("recepto_pavadinimas")[2].value = document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[1].innerHTML;
+				document.getElementsByName("recepto_url")[1].value = $('#'+i+'link').text();
+				document.getElementsByName("produktai")[2].value = document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[3].innerHTML;
+				document.getElementsByName("tags")[2].value = document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[6].innerHTML;
+				document.getElementById("istrinti").setAttribute("onclick", "javascript: istrinti(" + i + ");");
+				document.getElementById("issaugoti").setAttribute("onclick", "javascript: issaugoti(" + i + ");");
+			}
+			//istrinti recepta
+			function istrinti(i){
+				if (document.getElementById(i + "receptas")) { //check if it exists, to not throw errors
+					document.getElementById(i + "receptas").parentNode.removeChild(document.getElementById(i + "receptas"));
+				}
+			}
+/*			function myFunction4() {
+				$('#myModal').modal('show');
+			}*/
+
+			//add +1
+			function myFunction5(th, i) {
+	        	last[i] = th;
+	        	document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[th].innerHTML = parseInt(document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[th].innerHTML) + 1;
+			}
+
+			//like/dislike
+			var last = [];
+        	function myFunction3(i, type) {
+        		var th;
+        		if (type == 'like') {
+        			th = 4;
+        		}
+        		else {
+        			th = 5;
+        		}
+        		if (last[i] == 4 || last[i] == 5) {
+        			if (last[i] == th) {
+        				document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[th].innerHTML = parseInt(document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[th].innerHTML) - 1;
+        				last[i] = 0;
+        			} else {
+        				document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[last[i]].innerHTML = parseInt(document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[last[i]].innerHTML) - 1; //nuimti last
+	        			myFunction5(th, i); //prideti nauja
+        			}
+        		} else {
+	        		myFunction5(th, i); //prideti nauja
+        		}
+
+        	}
+
+        	//naujo recepto pridejimas
+	        function myFunction2() {
+	            var table = document.getElementById("receptai");
+	            if ((document.getElementsByName("recepto_pavadinimas")[1].value) && (document.getElementsByName("recepto_url")[0].value) && (document.getElementsByName("produktai")[1].value) && (document.getElementsByName("tags")[1].value)) {
+	            	receptuSk++;
+	                var row = table.insertRow(table.getElementsByTagName("tr").length);
+	                row.id = receptuSk + 'receptas';
+	                row.insertCell(0).outerHTML = '<th>' +  '<div position:absolute>' + '<button type="button" onclick="koreguoti(' + receptuSk + ')" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Koreguoti</button>' + '</div>' + '<th>';
+	                row.insertCell(1).outerHTML = '<th>' + document.getElementsByName("recepto_pavadinimas")[1].value + '<th>'; //name
+	                row.insertCell(2).outerHTML = '<th>' + '<a href="' + document.getElementsByName("recepto_url")[0].value + '"' + 'id="' + receptuSk + 'link"' + '>' + document.getElementsByName("recepto_url")[0].value + '</a>' + '<th>'; //url
+	                row.insertCell(3).outerHTML = '<th>' + document.getElementsByName("produktai")[1].value + '<th>'; // products
+	                row.insertCell(4).outerHTML = '<th onclick="myFunction3(' + receptuSk + ', \'like\')">' + 0 + '<th>'; //likes
+	                row.insertCell(5).outerHTML = '<th onclick="myFunction3(' + receptuSk + ', \'dislike\')">' + 0 + '<th>'; //dislikes
+	                row.insertCell(6).outerHTML = '<th>' + '#' + myHashTags(1) + '<th>'; //hashtag
+	                document.getElementsByName("output")[0].value = "Created!";
+	            } else {
+	            	document.getElementsByName("output")[0].value = "Missing input(s)!";
+	            }
+			}
+	        function myFunction() {
+	            var produktai, produktai_filter, table, tr, td, i, j, countPr, countPa, countHa, pavadinimas, pavadinimas_filter, hashtags, hashtags_filter, Ha, Pa, tdh, tdp, likes, Li;
+	            produktai = document.getElementsByName("produktai")[0];
+	            pavadinimas = document.getElementsByName("recepto_pavadinimas")[0];
+	            hashtags = document.getElementsByName("tags")[0];
+	            likes = document.getElementsByName("likes")[0].value;
+	            produktai_filter = produktai.value.toUpperCase().split(", ");
+	            pavadinimas_filter = pavadinimas.value.toUpperCase().split(" ");
+	            hashtags_filter = hashtags.value.replace("#", "").toUpperCase().split(", ");
+	            table = document.getElementById("receptai");
+	            tr = table.getElementsByTagName("tr");
+	            if (produktai_filter[0]) {
+	                document.getElementsByName("input")[0].value = 'produktai(' + produktai_filter + ')';
+	            } else {
+	                document.getElementsByName("input")[0].value = "Trūksta produktų";
+	                for (i = 1; i < tr.length; i++) {
+	                    tr[i].style.display = ""; //rodyti visus receptus jei nėra įrašytų produktų
+	                }
+	            }
+	            if (pavadinimas_filter[0]) {
+	                document.getElementsByName("input")[0].value = 'pavadinimas(' + pavadinimas_filter + ') ' + document.getElementsByName("input")[0].value;
+	            }
+	            if (hashtags_filter[0]) {
+	                document.getElementsByName("input")[0].value = document.getElementsByName("input")[0].value + ' tags(' + hashtags_filter + ')';
+	            }
+	            if (likes[0]) {
+	                document.getElementsByName("input")[0].value = document.getElementsByName("input")[0].value + ' likes(' + likes + ')'
+	            }
+	            if (produktai_filter[0]) {
+	                for (i = 1; i < tr.length; i++) {
+	                    countPr = 0;
+	                    if (pavadinimas_filter[0]) {
+	                        countPa = 0;
+	                        Pa = false;
+	                    } else {
+	                        Pa = true;
+	                    }
+	                    if (hashtags_filter[0]) {
+	                        countHa = 0;
+	                        Ha = false;
+	                    } else {
+	                        Ha = true;
+	                    }
+	                    if (likes) {
+	                        Li = false;
+	                    } else {
+	                        Li = true;
+	                    }
+	                    td = tr[i].getElementsByTagName("th")[3];
+	                    if (td) {
+	                        for (j = 0; j < produktai_filter.length; j++) {
+	                            if (td.innerHTML.toUpperCase().indexOf(produktai_filter[j].replace(",", "")) > -1) { //support for input like "Kiaušiniai," to ignore ","
+	                                countPr++;
+	                            }
+	                        }
+	                        for (j = 0; j < pavadinimas_filter.length; j++) {
+	                            if (tr[i].getElementsByTagName("th")[1].innerHTML.toUpperCase().indexOf(pavadinimas_filter[j]) > -1){
+	                                countPa++;
+	                                if (countPa >= pavadinimas_filter.length) {
+	                                    Pa = true;
+	                                }
+	                            }
+	                        }
+	                        for (j = 0; j < hashtags_filter.length; j++) {
+	                            if (tr[i].getElementsByTagName("th")[6].innerHTML.toUpperCase().indexOf(hashtags_filter[j].replace(",", "")) > -1){
+	                                countHa++;
+	                                if (countHa >= hashtags_filter.length) {
+	                                    Ha = true;
+	                                }
+	                            }
+	                        }
+	                        if (parseInt(tr[i].getElementsByTagName("th")[4].innerHTML) >= likes) {
+	                            Li = true;
+	                        }
+	                        if ((countPr >= produktai_filter.length) && Pa && Ha && Li) {
+	                            tr[i].style.display = ""; //This fucker brings back shit
+	                        } else {
+	                            tr[i].style.display = "none"; //This fucker fucks off shit
+	                        }
+	                    }
+	                }
+	            }
+	        }
+        </script>
+    </body>
+</html>
