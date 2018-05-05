@@ -1,0 +1,43 @@
+receptai:
+  - 1:
+    - pavadinimas: Miltiniai blynai
+    - nuoroda: https://www.google.com/search?q=miltiniai+blynai
+    - produktai: Pienas, Miltai, Kiaušiniai
+    - likes: 15
+    - dislikes: 2
+    - tags: #pienas #desertas
+  - 2:
+    - pavadinimas: Bulviniai blynai
+    - nuoroda: https://www.google.com/search?q=bulviniai+blynai
+    - produktai: Bulvės, Kiaušiniai
+    - likes: 10
+    - dislikes: 4
+    - tags: #bulvės #desertas
+  - 3:
+    - pavadinimas: Saldūs miltiniai blynai
+    - nuoroda: https://www.google.com/search?q=saldus+miltiniai+blynai
+    - produktai: Pienas, Miltai, Kiaušiniai, Cukrus
+    - likes: 25
+    - dislikes: 1
+    - tags: #pienas #cukrus #desertas
+  - 4:
+    - pavadinimas: Saldūs miltiniai blynai su varškę
+    - nuoroda: https://www.google.com/search?q=saldus+miltiniai+blynai+su+varske
+    - produktai: Pienas, Miltai, Kiaušiniai, Varškė, Cukrus
+    - likes: 25
+    - dislikes: 2
+    - tags: #varškė #cukrus #desertas
+  - 5:
+    - pavadinimas: Kotletai
+    - nuoroda: https://www.google.com/search?q=koteltai
+    - produktai: Malta mėsa, Kiaušiniai, Džiūvesėliai
+    - likes: 17
+    - dislikes: 0
+    - tags: #mėsa
+  - 6:
+    - pavadinimas: Makaronai su mėsa ir sūriu
+    - nuoroda: https://www.google.com/search?q=makaronai+su+mesa
+    - produktai: Malta mėsa, Sūris, Makaronai
+    - likes: 31
+    - dislikes: 5
+    - tags: #mėsa #sūris
