@@ -165,7 +165,7 @@
 			//koreguoti recepta
 			function myHashTags(i) {
         		return document.getElementsByName("tags")[i].value.replace(/#/g, '').replace(/,/g, '').replace(/ /g, ' #')
-        	}
+        		}
 			function issaugoti(i) {
 				if ((document.getElementsByName("recepto_pavadinimas")[2].value) && (document.getElementsByName("recepto_url")[1].value) && (document.getElementsByName("produktai")[2].value) && (document.getElementsByName("tags")[2].value)) {
 					var table = document.getElementById("receptai");
@@ -203,6 +203,10 @@
 			function istrinti(i){
 				if (document.getElementById(i + "receptas")) { //check if it exists, to not throw errors
 					document.getElementById(i + "receptas").parentNode.removeChild(document.getElementById(i + "receptas"));
+					setTimeout(function (){
+						$('#modalwindow').modal('hide');
+						document.getElementsByName("output2")[0].value = 'Output';
+					}, 600);
 				}
 			}
 /*			function myFunction4() {
