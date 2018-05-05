@@ -194,8 +194,8 @@
 				document.getElementById("modalPavadinimas").innerHTML = i + ' Receptas';
 				document.getElementsByName("recepto_pavadinimas")[2].value = document.getElementById(i + 'receptas').getElementsByTagName("th")[1].innerHTML;
 				document.getElementsByName("recepto_url")[1].value = $('#'+i+'link').text();
-				document.getElementsByName("produktai")[2].value = document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[3].innerHTML;
-				document.getElementsByName("tags")[2].value = document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[6].innerHTML;
+				document.getElementsByName("produktai")[2].value = document.getElementById(i + 'receptas').getElementsByTagName("th")[3].innerHTML;
+				document.getElementsByName("tags")[2].value = document.getElementById(i + 'receptas').getElementsByTagName("th")[6].innerHTML;
 				document.getElementById("istrinti").setAttribute("onclick", "javascript: istrinti(" + i + ");");
 				document.getElementById("issaugoti").setAttribute("onclick", "javascript: issaugoti(" + i + ");");
 			}
