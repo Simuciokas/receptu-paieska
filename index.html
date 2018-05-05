@@ -165,7 +165,7 @@
 			//koreguoti recepta
 			function myHashTags(i) {
         		return document.getElementsByName("tags")[i].value.replace(/#/g, '').replace(/,/g, '').replace(/ /g, ' #')
-        		}
+            }
 			function issaugoti(i) {
 				if ((document.getElementsByName("recepto_pavadinimas")[2].value) && (document.getElementsByName("recepto_url")[1].value) && (document.getElementsByName("produktai")[2].value) && (document.getElementsByName("tags")[2].value)) {
 					var table = document.getElementById("receptai");
