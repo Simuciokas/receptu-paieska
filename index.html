@@ -244,6 +244,10 @@
 			}
 			//like/dislike
 			var last = [];
+		function prideti(th, i) {
+	        	last[i] = th;
+	        	document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[th].innerHTML = parseInt(document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[th].innerHTML) + 1;
+		}
         	function balsuoti(i, type) {
         		var th;
         		if (type == 'like') {
@@ -258,10 +262,10 @@
         				last[i] = 0;
         			} else {
         				document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[last[i]].innerHTML = parseInt(document.getElementById("receptai").getElementsByTagName("tr")[i].getElementsByTagName("th")[last[i]].innerHTML) - 1; //nuimti last
-	        			myFunction5(th, i); //prideti nauja
+	        			prideti(th, i); //prideti nauja
         			}
         		} else {
-	        		myFunction5(th, i); //prideti nauja
+	        		prideti(th, i); //prideti nauja
         		}
 
         	}
