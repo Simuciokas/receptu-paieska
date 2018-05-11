@@ -211,7 +211,7 @@
                     for (i = 1; i < (rows.length - 1); i++) {
                         shouldSwitch = false;
                         if (dir == "none") {
-                            if (rows[i].id > rows[i+1].id) {
+                            if (parseInt(rows[i].id.replace('receptas',"")) > parseInt(rows[i+1].id('receptas',""))) {
                                 shouldSwitch = true;
                                 break;
                             }
